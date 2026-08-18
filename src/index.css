@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+@import "tailwindcss";
+
+/* Custom Aura Styles to match the image */
+@layer base {
+  body {
+    @apply bg-[#FDFCFB] text-gray-900 font-sans antialiased;
+    font-family: 'Poppins', sans-serif;
+  }
+}
+
+.water-bg {
+  @apply fixed inset-0 -z-10 bg-gradient-to-br from-[#f3f4f6] to-[#e0e7ff] opacity-40;
+}
+
+/* Fix for the "Unknown Rule" error in VS Code */
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-down {
+  animation: slide-down 0.2s ease-out;
+}
+
+/* Slide up animation for modal */
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.3s ease-out;
+}
+
+/* Bounce animation for typing dots */
+@keyframes bounce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.animate-bounce {
+  animation: bounce 0.6s infinite;
+}
+
+/* Prevent zoom on mobile for input focus */
+input,
+select,
+textarea,
+[contenteditable="true"] {
+  font-size: 16px !important;
+}
+
+/* For very small screens, ensure no zoom */
+@media screen and (max-width: 768px) {
+
+  input,
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+}
